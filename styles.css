@@ -1,0 +1,13 @@
+/* CSS */
+.emds-button {
+	height:100%;
+	width:100%;
+	background-color: #404040;
+	color: #ffffff;
+	font-family: "QlikView Sans";
+}
+
+.emds-button:hover {
+	cursor: pointer;
+	background-color: gray;
+};
