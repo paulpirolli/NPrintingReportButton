@@ -1,3 +1,5 @@
+var urlMask = location.pathname.substring(0,location.pathname.indexOf('/sense/')); // mask setting
+
 var localCache = {
     data: {},
     remove: function (url) {
@@ -18,7 +20,7 @@ var localCache = {
 
 $.when(
 	$.ajax({
-		url: "/qps/user?xrfkey=GAMG717cpRsrx7xR",
+		url: urlMask + "/qps/user?xrfkey=GAMG717cpRsrx7xR",
 		type: "GET",
 		headers: {
 			"X-Qlik-XrfKey":"GAMG717cpRsrx7xR"
@@ -29,7 +31,7 @@ $.when(
 	})
 ).then(function(user){
 	//console.log(user);
-	var url = "/qrs/sharedcontent/full?xrfkey=GAMG717cpRsrx7xR&filter=owner.name eq '" + user.userName + "'";
+	var url = urlMask + "/qrs/sharedcontent/full?xrfkey=GAMG717cpRsrx7xR&filter=owner.name eq '" + user.userName + "'";
 	return $.ajax({
 		url: url,
 		type: "GET",
@@ -97,7 +99,7 @@ define( ["qlik", "text!./template.html","css!./styles.css"],
 				var NPrintProps = $scope.$parent.layout;
 				NPrintButton.onclick = function retrieveReport(){ 
 					$.ajax({
-						url: "/qps/user?xrfkey=GAMG717cpRsrx7xR",
+						url: urlMask + "/qps/user?xrfkey=GAMG717cpRsrx7xR",
 						type: "GET",
 						headers: {
 							"X-Qlik-XrfKey":"GAMG717cpRsrx7xR"
@@ -106,7 +108,7 @@ define( ["qlik", "text!./template.html","css!./styles.css"],
 							//console.log(user);
 							//get library
 							$.ajax({
-								url: "/qrs/sharedcontent/full?xrfkey=GAMG717cpRsrx7xR&filter=owner.name eq '" + user.userName + "' and name eq '"+NPrintProps.NPrintingReport+"'",
+								url: urlMask + "/qrs/sharedcontent/full?xrfkey=GAMG717cpRsrx7xR&filter=owner.name eq '" + user.userName + "' and name eq '"+NPrintProps.NPrintingReport+"'",
 								type: "GET",
 								headers: {
 									"X-Qlik-XrfKey":"GAMG717cpRsrx7xR"
@@ -137,3 +139,4 @@ define( ["qlik", "text!./template.html","css!./styles.css"],
 		};
 
 	} );
+
