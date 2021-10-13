@@ -1,9 +1,9 @@
 {
     "name": "NPrinting_Download",
-    "description": "Basic empty visualization template based on angular.js",
+    "description": "NPrinting button that retrieves a previously generated NPrinting report",
     "type": "visualization",
     "version": "1.0.0",
-    "author": "",
+    "author": "Paul Pirolli",
     "homepage": "",
     "keywords": "qlik-sense, visualization",
     "license": "",
